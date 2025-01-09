@@ -113,8 +113,7 @@ export async function callback(
       // (that just means it's a new user signing in for the first time).
       let userByAccount
       if (adapter) {
-        const { getUserByAccount } = adapter
-        userByAccount = await getUserByAccount({
+        userByAccount = await adapter.getUserByAccount({
           providerAccountId: account.providerAccountId,
           provider: provider.id,
         })
